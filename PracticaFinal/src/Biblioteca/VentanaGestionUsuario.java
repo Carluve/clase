@@ -351,8 +351,14 @@ public class VentanaGestionUsuario extends javax.swing.JFrame {
            GestionUsuario.recuperarSocio(consulta);
            jTextField1.setText(GestionUsuario.recuperarSocio(consulta).getNombre());
            jTextField2.setText(GestionUsuario.recuperarSocio(consulta).getDNI());
-           jComboBox2.setToolTipText(GestionUsuario.recuperarSocio(consulta).getCategoria_socio());
-          jTextField5.setText(GestionUsuario.recuperarSocio(consulta).getFecha_alta());
+           if(GestionUsuario.recuperarSocio(consulta).getCategoria_socio().equals("Alumno")){
+               jComboBox1.setSelectedIndex(0);
+           }
+           else{
+               jComboBox1.setSelectedIndex(1);
+           
+           }
+           jTextField5.setText(GestionUsuario.recuperarSocio(consulta).getFecha_alta());
         }
         else{
            jLabel7.setSize(15, 15);
